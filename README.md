@@ -1,20 +1,14 @@
-# A-IntrotoR
+Introduction to R 
 =================================
 
-Introduction to R 
 
-My name is Kevin O'Brien (email: Kevin.obrien@ul.ie)
+1. Introduction to R	
+2. What is R?	
+3. Working with R	
+4. Packages	
+5. Using R's help commands
 
-Dublin R User Group        (www.meetup.com/DublinR)
-Contents
-Introduction to R	1
-What is R?	1
-Working with R	4
-Packages	8
-Using R's help commands	10
-
-
-What is R?
+#### What is R?
 R is a statistical Environment for statistical computing and graphics, and is one of the major tools used in statistical research and in applications of statistics research. 
 
 R is a suite of software facilities for:
@@ -35,7 +29,7 @@ The S language was developed in the late 1980s at AT&T labs. The R project was s
 
 R is the product of an active movement among statisticians for a powerful, programmable, portable, and open computing environment, applicable to the most complex and sophisticated problems, as well as more “routine”analysis.
 
-Using R
+#### Using R
 
 R offers the additional advantage of being a free and open-source system under the GNU general public licence, available for windows, Unix and Mac OS platforms. 
 
@@ -70,7 +64,7 @@ Key points:
 
 
  
-Working with R
+#### Working with R
 R is most easily used in an interactive manner, typing code into the command line and R gives you an response. 
 
 Questions are asked and answered on the command line. 
@@ -84,10 +78,7 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
-
-
-
-The prompt
+#### The prompt
 
 The > is called the prompt, used to indicate where you are to type. 
 
