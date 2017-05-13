@@ -1,0 +1,63 @@
+
+Downloading and Installing R
+===================================
+
+
+
+R can be started in the usual way by double-clicking on the R icon on the desktop.
+
+#### Working Directory
+
+R works best if you have a dedicated folder for each separate project - called the working directory.
+ Create the directory/folder that will be used as the working folder, e.g. create a folder on your desktop titled Your_name
+by right-clicking, then clicking New > Folder.
+  Right-click on an existing R icon and click Copy.
+  In the working folder, right-click and click Paste. 
+The R icon will appear in the folder.
+
+#### Introduction to R
+
+R is an open source implementation of the S-Plus language. It is freely available and is licensed under the GPL. The language simplifies many statistical computations and can be a powerful tool. R is typically used by statisticians as a tool for direct data analysis.
+
+
+R software and packages can be downloaded from Comprehensive R Archive Network (CRAN; http: //cran.r-project.org).
+ 
+R is under very active development and is constantly gaining “market shares” in many fields related to statistics, such as finance, data mining, genomics and pharmaceuticals.
+ 
+####  Downloading and Installing R
+
+Click on
+Windows > base > R-version-win32.exe > Run
+and follow the instructions to install the programme.
+
+### Vectors and assignment
+
+R operates on named data structures. The simplest such structure is the numeric vector, which is a single entity consisting of an ordered collection of numbers. To set up a vector
+named x, say, consisting of five numbers, namely 10.4, 5.6, 3.1, 6.4 and 21.7, use the R command
+> x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
+
+This is an assignment statement using the function c()
+
+### Using the Help command
+
+R has a built-in help facility. To get more information on any specific function, e.g. sqrt(), the command is
+> help(sqrt)
+
+An alternative is
+> ?sqrt
+
+We can also obtain help on features specified by special characters. In this case q
+> help("[[")
+
+Help is also available in HTML format by running
+> help.start()
+
+For more information use
+> ?help
+
+### Useful links:
+
+http://cran.r-project.org/doc/manuals/R-intro.pdf
+ 
+ 
+
