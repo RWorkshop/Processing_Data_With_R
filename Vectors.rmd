@@ -7,7 +7,7 @@ Data Manipulation
 data manipulation
 Descriptive and Quantile Statistics
  
-Vectors
+####Vectors
 
 Vectors are the simplest type of object in R. There are 3 main types of vectors:
 
@@ -88,7 +88,7 @@ sum, mean, max, min, prod, ......
 Some other interesting functions 
 cumsum, sort, range, pmax, pmin, : : :
 
-Generating Sequences 
+####Generating Sequences 
 R has a number of ways to generate sequences of numbers. 
 These include the simplest approach, using the the colon ":", e.g.
 
@@ -128,7 +128,7 @@ The rep() function replicates objects in various ways.
 > s4
 [1] 1 1 1 1 1 1 1 1 1 1 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 
- Character Vectors:
+#### Character Vectors:
 
 To set up a character/string vector z consisting of 4 place names use quotation marks.
 
@@ -154,7 +154,7 @@ Returns a vector the same length as x, with a value TRUE when the condition is m
 The logical operators are >, >=, <, <=, == for exact equality and != for inequality.
 
 
-Missing Values
+####Missing Values
 In some cases the entire contents of a vector may not be known. For example, missing data from a particular data set.
 A place can be reserved for this by assigning it the special value NA.
 
@@ -166,7 +166,7 @@ This returns a logical vector the same length as x with a value TRUE if that par
 > w <- c(1:10, rep(NA,4), 22)
 > is.na(w)
 
-Indexing Vectors
+####Indexing Vectors
 We have already seen how to access single elements of a vector.
 
 Subsets of a vector may also be selected using a similar approach.
@@ -187,7 +187,7 @@ This command excludes the first 4 elements of w.
 
 In this case only the 1st and 4th elements of w are excluded.
 
-Modifying Vectors
+####Modifying Vectors
 
 To alter the contents of a vector, similar methods can be used.
  
@@ -200,7 +200,7 @@ For example, to modify the 1st element of x and assign it a value 5 use
 > x
 [1] 5.0 5.6 3.1 6.4 21.7
 
-Factors
+####Factors
 A factor is a special type of vector used to represent categorical data, e.g. gender, social class, etc.
 
  Stored internally as a numeric vector with values 1, 2, ..... k, where k is the number of levels.
@@ -211,7 +211,7 @@ A factor is a special type of vector used to represent categorical data, e.g. ge
 
 
 
-Vectors: Data Manipulation
+####Vectors: Data Manipulation
 
 Types of vectors
 	logical
@@ -241,31 +241,11 @@ as.numeric()
 as.integer()
 
 
-Vectors: Indices
+####Vectors: Indices
 
  
 
  
 
 
-Descriptive and Quantile Statistics
 
-
-Some simple ones to start with
-
-mean()
-range()
-min()
-max()
-median()
-IQR()
-fivenum()
-
-
-Measures of Dispersion
-  range
-  variance
-  covariance
-  standard deviation
-
-sum
