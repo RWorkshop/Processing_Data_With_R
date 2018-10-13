@@ -1,0 +1,23 @@
+% - http://www.cookbook-r.com/Manipulating_data/Summarizing_data/
+% - http://www.inside-r.org/packages/cran/plyr/docs/ddply
+% - http://www.computerworld.com/s/article/9243391/4_data_wrangling_tasks_in_R_for_advanced_beginners?taxonomyId=9&pageNumber=1
+% - http://seananderson.ca/courses/12-plyr/plyr_2012.pdf
+
+%----------------------------------------------------------------------------------------------------%
+
+\subsection{plyr basics}
+plyr builds on the built-in apply functions by giving you control over the input and
+output formats and keeping the syntax consistent across all variations. It also adds
+some niceties like error processing, parallel processing, and progress bars.
+
+The basic format is 2 letters followed by ply(). The ﬁrst letter refers to the format
+in and the second to the format out.
+
+The 3 main letters are:
+\begin{itemize}
+\item[d] data frame
+\item[a]array (includes matrices)
+\item[l] = list
+\end{itemize}
+
+%-------------------------------------------------------------------------------%

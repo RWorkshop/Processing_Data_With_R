@@ -1,0 +1,52 @@
+Regular Expressions
+=========================
+
+R's regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with ?regexp. The following gives a few basic examples.
+
+The grep function can be used for finding patterns in strings, here letter A in vector month.name.
+
+month.name[grep("A", month.name)]
+[1] "April"  "August"
+Table of Contents
+Example for using regular expressions to substitute a pattern by another one using the sub/gsub function with a back reference. Remember: single escapes '\' need to be double escaped '\\' in R.
+
+gsub("(i.*a)", "xxx_\\1", "virginica", perl = TRUE)
+[1] "vxxx_irginica"
+Table of Contents
+
+
+Example for split and paste functions
+
+x <- gsub("(a)", "\\1_", month.name[1], perl=TRUE) # performs substitution with back reference which inserts in this example a '_' character
+x
+[1] "Ja_nua_ry"
+
+strsplit(x, "_") # splits string on inserted character from above
+[[1]]
+[1] "Ja"  "nua" "ry"
+
+paste(rev(unlist(strsplit(x, NULL))), collapse="") # reverses character string by splitting first all characters into vector fields and then collapsing them with paste
+[1] "yr_aun_aJ"
+Table of Contents
+
+
+Example for importing specific lines in a file with a regular expression. The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the cat function, all lines of this file are imported into a vector with readLines, the specific elements (lines) are then retieved with the grep function, and the resulting lines are split into vector fields with strsplit.
+
+cat(month.name, file="zzz.txt", sep="\n")
+x <- readLines("zzz.txt") 
+x <- x[c(grep("^J", as.character(x), perl = TRUE))]
+t(as.data.frame(strsplit(x, "u")))
+                [,1]  [,2] 
+c..Jan....ary.. "Jan" "ary"
+c..J....ne..    "J"   "ne" 
+c..J....ly..    "J"   "ly" 
+Table of Contents
+
+Interpreting Character String as Expression
+
+Example
+mylist <- ls() # generates vector of object names in session
+mylist[1] # prints name of 1st entry in vector but does not execute it as expression that returns values of 10th object
+get(mylist[1]) # uses 1st entry name in vector and executes it as expression
+eval(parse(text=mylist[1])) # alternative approach to obtain similar result
+Table of Contents
