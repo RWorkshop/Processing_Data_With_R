@@ -1,7 +1,7 @@
 %- https://www.kdnuggets.com/2018/03/text-processing-r.html
 
 
-Overview
+### Overview
  
 This tutorial goes over some basic concepts and commands for text processing in R. R is not the only way to process text, nor is it always the best way. Python is the de-facto programming language for processing text, with a lot of built-in functionality that makes it easy to use, and pretty fast, as well as a number of very mature and full featured packages such as NLTK and textblob. Basic shell scripting can also be many orders of magnitude faster for processing extremely large text corpora -- for a classic reference see Unix for Poets. Yet there are good reasons to want to use R for text processing, namely that we can do it, and that we can fit it in with the rest of our analyses. Furthermore, there is a lot of very active development going on in the R text analysis community right now (see especially the quanteda package). I primarily make use of the stringr package for the following tutorial, so you will want to install it:
 
@@ -15,23 +15,28 @@ The Stanford CoreNLP libraries do a whole bunch of awesome things including toke
 MALLET does a whole bunch of useful statistical analysis of text, including an extremely fast implementation of LDA. You can check out examples here, but download it from the first link above.
  
 
-Regular Expressions
+### Regular Expressions
  
-Regular expressions are a way of specifying rules that describe a class of strings (for example -- every word that starts with the letter "a") that are more succinct and general than simply generating a dictionary and checking against every possible value that meets some rule. They are foundational to lots of different text processing tasks where we want to count types of terms (for example), or identify things like email addresses in documents. If you want build your competency with text analysis in R, they are definitely a necessary tool. You can start by checking out this link to an overview of regular expressions, and then take a look at this primer on using regular expressions in R. What is important to understand is that they can be far more powerful than simple string matching.
+Regular expressions are a way of specifying rules that describe a class of strings (for example -- every word that starts with the letter "a") that are more succinct and general than simply generating a dictionary and checking against every possible value that meets some rule. 
+										    They are foundational to lots of different text processing tasks where we want to count types of terms (for example), or identify things like email addresses in documents. If you want build your competency with text analysis in R, they are definitely a necessary tool. You can start by checking out this link to an overview of regular expressions, and then take a look at this primer on using regular expressions in R. What is important to understand is that they can be far more powerful than simple string matching.
 
-If you want to get started using regular expressions, you can check out the tutorials posted above, but I have also found it very helpful to just start trying out examples and seeing how they work. One simple way to do this is to use an online app with a graphical interface that highlights matches, such as the one provided here. I personally prefer the RegExRx app, which should work on OSX and Windows and is available either as a shareware version or as a paid app on the Apple App Store. This program includes support for Perl style Regular Expressions which are quite common and are used by some R packages. Whichever program you choose, I would suggest just messing around and reading random articles on the internet for a few hours before you get started using Regular Expressions in R. I also tend to use one of these programs to prototype any complex RegEx I want to use in production code.
+If you want to get started using regular expressions, you can check out the tutorials posted above, but I have also found it very helpful to just start trying out examples and seeing how they work. One simple way to do this is to use an online app with a graphical interface that highlights matches, such as the one provided here. 
+																																															      I personally prefer the RegExRx app, which should work on OSX and Windows and is available either as a shareware version or as a paid app on the Apple App Store. This program includes support for Perl style Regular Expressions which are quite common and are used by some R packages. Whichever program you choose, I would suggest just messing around and reading random articles on the internet for a few hours before you get started using Regular Expressions in R. I also tend to use one of these programs to prototype any complex RegEx I want to use in production code.
 
  
 
 Example Commands
  
 Lets start with an example string.
+																			    <pre><code>
 
 my_string <- "Example STRING, with example numbers (12, 15 and also 10.2)?!"
+</code></pre>
 
+First we can lowercase the entire string -- often a good starting place. 
+																							    This will prevent any future string matching from treating "Example" and "example" as distinct words, for example, just because one came at the beginning of a sentence:
 
-First we can lowercase the entire string -- often a good starting place. This will prevent any future string matching from treating "Example" and "example" as distinct words, for example, just because one came at the beginning of a sentence:
-
+																																															      
 lower_string <- tolower(my_string)
 
 
@@ -41,12 +46,14 @@ second_string <- "Wow, two sentences."
 my_string <- paste(my_string,second_string,sep = " ")
 
 
-Now we might want to split our string up into a number of strings, we can do this by using the str_split() function, available as part of the stringr R package. The following line will split the combined string from above on exclamation points:
+Now we might want to split our string up into a number of strings, we can do this by using the str_split() function, available as part of the stringr R package. 
+																							    The following line will split the combined string from above on exclamation points:
 
 my_string_vector <- str_split(my_string, "!")[[1]]
 
 
-Notice that the splitting character gets deleted, but we are now left with essentially two sentences, each stored as a separate string. Furthermore, note that a list object is returned the str_split() function, so to access the actual vector containing the split strings, we need to use the [[ ]] list operator and get the first entry.
+Notice that the splitting character gets deleted, but we are now left with essentially two sentences, each stored as a separate string. 
+																							    Furthermore, note that a list object is returned the str_split() function, so to access the actual vector containing the split strings, we need to use the [[ ]] list operator and get the first entry.
 
 Now, let's imagine we are interested in sentences that contain questions marks. We can search for the string in the resulting my_string_vector that contains a "?" by using the grep() command. This command will return the index in the input vector that contains what we are looking for, or nothing if it could not find a match.
 
@@ -72,7 +79,7 @@ note here that we used out first real regex -- [0-9]+ which translates to "match
 
  
 
-Cleaning Text
+### Cleaning Text
  
 One of the most common things we might want to do is read in, clean, and "tokenize" (split into individual words) a raw input text file. There are a number of packages that make this quite easy to do in R (I recommend and use quanteda). Later in this tutorial (and more generally in your own work), you will find it much easier to use built-in functions like those in quanteda to do these tasks, but I think it is valuable and instructive to learn a bit about what goes on behind the curtain when we talk about cleaning or tokenizing text. To do this ourselves, we will want to make use of two functions, the first of these will clean an individual string, removing any characters that are not letters, lowercasing everything, and getting rid of additional spaces between words before tokenizing the resulting text and returning a vector of individual words:
 
