@@ -5,15 +5,19 @@ R's regular expression utilities work similar as in other languages. To learn ho
 
 The grep function can be used for finding patterns in strings, here letter A in vector month.name.
 
+```{r}
 month.name[grep("A", month.name)]
 [1] "April"  "August"
+```
+
 Table of Contents
 Example for using regular expressions to substitute a pattern by another one using the sub/gsub function with a back reference. Remember: single escapes '\' need to be double escaped '\\' in R.
 
+```{r}
 gsub("(i.*a)", "xxx_\\1", "virginica", perl = TRUE)
 [1] "vxxx_irginica"
 Table of Contents
-
+```
 
 Example for split and paste functions
 
