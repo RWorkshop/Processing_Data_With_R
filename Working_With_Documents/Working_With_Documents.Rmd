@@ -1,0 +1,60 @@
+
+
+doconv
+staplr
+pdftools
+
+Next create a vector of PDF file names using the <tt>list.files()</tt> function. 
+
+
+
+##### file locations #####
+
+Still Important for Networked Servers
+
+* <tt>getwd()</tt>
+* <tt>setwd("myFolderName")</tt>
+
+##### <tt>list.files()</t> #####
+
+The pattern argument says to only grab those files ***containing*** the text "pdf":
+
+<pre><code>
+myPDFfiles <- list.files(pattern = "pdf")
+</code></pre>
+
+
+The pattern argument says to only grab those files ***ending*** with "pdf":
+
+<pre><code>
+myPDFfiles <- list.files(pattern = "pdf$")
+</code></pre>
+
+-----------------------
+
+## {doconv}
+
+### Document Conversion to 'PDF' or 'PNG'
+* It provides the ability to generate images from documents of different types. 
+* Three main features are provided: <tt>functions for generating document thumbnails, functions for performing visual tests of documents and a function for updating fields and table of contents of a 'Microsoft Word' or 'RTF' document. 
+
+####Installation
+
+* In order to work, 'LibreOffice' must be installed on the machine and or 'Microsoft Word'. 
+* If the latter is available, it can be used to produce PDF documents or images identical to the originals; otherwise, 'LibreOffice' is used and the rendering can be sometimes different from the original documents.
+
+
+--
+
+## {staplr}
+This package provides functions to manipulate PDF files:
+
+* fill out PDF forms: <tt>get_fields()</tt> and <tt>set_fields()</tt>
+* merge multiple PDF files into one: <tt>staple_pdf()</tt>
+* remove selected pages from a file: <tt>remove_pages()</tt>
+* rename multiple files in a directory: <tt>rename_files()</tt>
+* rotate entire pdf document: <tt>rotate_pdf()</tt>
+* rotate selected pages of a pdf file: <tt>rotate_pages()</tt>
+* Select pages from a file: <tt>select_pages()</tt>
+* splits single input PDF document into individual pages: <tt>split_pdf()</tt>
+* splits single input PDF document into parts from given points: <tt>split_from()</tt>
